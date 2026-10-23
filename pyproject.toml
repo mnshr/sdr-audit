@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sdraudit"
+version = "0.1.0"
+description = "Sufficient Dimension Reduction for Pretrained Model Auditing, Residual Subspace Repair, and Uncertainty Quantification"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "SDR Research Team" }
+]
+keywords = [
+    "sufficient-dimension-reduction",
+    "model-auditing",
+    "representation-learning",
+    "uncertainty-quantification",
+    "transfer-learning",
+    "conditional-independence",
+    "pytorch"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
+]
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.2.0",
+    "pandas>=2.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "ruff>=0.1.0",
+    "black>=23.0.0"
+]
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocstrings[python]>=0.20.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/mnshr/sdr-audit"
+Repository = "https://github.com/mnshr/sdr-audit.git"
+"Bug Tracker" = "https://github.com/mnshr/sdr-audit/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sdraudit"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+pythonpath = ["src"]
